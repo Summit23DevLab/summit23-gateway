@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: summit23-poi-gateway-app-dev
+  annotations:
+    argocd/app-name: summit23-poi-gateway-app-dev
+    backstage.io/kubernetes-id: summit23-poi-gateway-app-dev
+    backstage.io/kubernetes-namespace: summit23
+    backstage.io/kubernetes-label-selector: 'app.kubernetes.io/instance=summit23-poi-gateway-app-dev'
+    backstage.io/techdocs-ref: dir:.
+    github.com/project-slug: Summit23DevLab/summit23-gateway
+  tags:
+    - java
+    - quarkus
+    - maven
+    - workshop
+  links:
+    - url: https://console-openshift-console.apps.summit23.0x74.p1.openshiftapps.com/dev-pipelines/ns/summit23/
+      title: Pipelines
+      icon: web
+    - url: https://console-openshift-console.apps.summit23.0x74.p1.openshiftapps.com/k8s/ns/summit23/deployments/poi-gateway-app
+      title: Deployment
+      icon: web
+    - url: https://devspaces.apps.summit23.0x74.p1.openshiftapps.com/#https://github.com/Summit23DevLab/summit23-gateway?che-editor=che-incubator/che-code/latest&devfilePath=.devfile-vscode.yaml
+      title: OpenShift Dev Spaces (VS Code)
+      icon: web
+spec:
+  type: service
+  lifecycle: production
+  owner: "user:rhsummit2023"
+  system: workshop-system-summit23
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: workshop-system-summit23
+  tags:
+    - backstage
+    - janus-idp
+    - openshift
+    - workshop
+    - rh-summit
+spec:
+  owner: "user:rhsummit2023"
